@@ -98,152 +98,210 @@ export const VEHICLE_STATE_MILESTONES: VehicleStateMilestone[] = [
     dirtFactor: 0.0,
     foamFactor: 0.0,
     waterFactor: 0.1,
-    clearcoatRoughness: 0.35,
+    clearcoatRoughness: 0.3,
     clearcoatStrength: 0.5,
-    ceramicIridescence: 0.1,
+    ceramicIridescence: 0.0,
   },
   {
     state: VehicleState.DETAILED,
     progress: 0.58,
-    label: 'Stage 3: Multi-Stage Paint Correction',
-    germanLabel: 'Stufe 3: Mehrstufige Lackkorrektur',
-    description: 'Rotary & dual-action micro-polishing eliminates 95%+ swirl marks and hazing.',
+    label: 'Stage 3: Multi-Stage Swirl-Free Polish',
+    germanLabel: 'Stufe 3: Mehrstufige Lackpolitur',
+    description: 'Correction compounds eliminate 95%+ of holograms and micro-scratches.',
     dirtFactor: 0.0,
     foamFactor: 0.0,
     waterFactor: 0.0,
     clearcoatRoughness: 0.08,
     clearcoatStrength: 0.85,
-    ceramicIridescence: 0.3,
+    ceramicIridescence: 0.2,
   },
   {
     state: VehicleState.PROTECTED,
     progress: 0.78,
-    label: 'Stage 4: Ceramic Shield & Hydrophobic Bond',
-    germanLabel: 'Stufe 4: Keramikversiegelung & Schutz',
-    description: 'Molecular ceramic bonding provides ultra-deep gloss and extreme water beading.',
+    label: 'Stage 4: Certified 9H Ceramic Seal',
+    germanLabel: 'Stufe 4: 9H Keramikversiegelung',
+    description: 'Inorganic SiO2 molecular layer bonds to clearcoat with 115° contact angle.',
     dirtFactor: 0.0,
     foamFactor: 0.0,
     waterFactor: 0.0,
-    clearcoatRoughness: 0.03,
+    clearcoatRoughness: 0.02,
     clearcoatStrength: 1.0,
     ceramicIridescence: 0.9,
   },
   {
     state: VehicleState.FINAL,
     progress: 1.0,
-    label: 'Showroom Finish: Masterpiece Perfection',
-    germanLabel: 'Showroom-Finish: Perfektion',
-    description: 'Uncompromising clarity, mirror reflections, and long-term asset preservation.',
+    label: 'Stage 5: Showroom Masterpiece Finish',
+    germanLabel: 'Stufe 5: Perfektes Showroom-Finish',
+    description: 'Flawless optical reflection, wet candy depth, and lasting hydrophobic armor.',
     dirtFactor: 0.0,
     foamFactor: 0.0,
     waterFactor: 0.0,
-    clearcoatRoughness: 0.02,
+    clearcoatRoughness: 0.01,
     clearcoatStrength: 1.0,
     ceramicIridescence: 1.0,
   },
 ]
 
 /**
- * 11 Master Story Journey Milestones
+ * 11 Story Journey Chapters
  */
-export const STORY_MILESTONES = [
-  { id: 'hero-dirty', range: [0.00, 0.08], title: '01. Problem: Contamination' },
-  { id: 'water-sweep', range: [0.08, 0.18], title: '02. Wash: Snow Foam & Rinse' },
-  { id: 'ceramic-wrap', range: [0.18, 0.28], title: '03. Ceramic: Contour Wrap' },
-  { id: 'inspection-3d', range: [0.28, 0.40], title: '04. 3D Inspection: Hotspots' },
-  { id: 'services-flow', range: [0.40, 0.55], title: '05. Services: 7 Treatments' },
-  { id: 'before-after', range: [0.55, 0.64], title: '06. Before / After: Beam' },
-  { id: 'reveal-finish', range: [0.64, 0.72], title: '07. Finish: Macro Surface' },
-  { id: 'process-scan', range: [0.72, 0.80], title: '08. Process: Quality Scan' },
-  { id: 'washpark', range: [0.80, 0.88], title: '09. Washpark: 7 Bays' },
-  { id: 'fleet-b2b', range: [0.88, 0.94], title: '10. B2B: Fleet Solutions' },
-  { id: 'showroom-cta', range: [0.94, 1.00], title: '11. Showroom: Appointment' },
-] as const
+export interface StoryMilestone {
+  id: string
+  range: [number, number]
+  title: string
+  subtitle: string
+  germanTitle: string
+}
+
+export const STORY_MILESTONES: StoryMilestone[] = [
+  {
+    id: 'hero-entrance',
+    range: [0.00, 0.15],
+    title: '01: Neglected Vehicle Entrance',
+    subtitle: 'From Dirty to Remarkable',
+    germanTitle: 'Verschmutzte Fahrzeugeinfahrt',
+  },
+  {
+    id: 'dust-contamination',
+    range: [0.15, 0.28],
+    title: '02: Road Contamination',
+    subtitle: 'Every journey leaves a mark',
+    germanTitle: 'Straßenschmutz & Oxidation',
+  },
+  {
+    id: 'water-sweep',
+    range: [0.28, 0.40],
+    title: '03: High-Pressure Decontamination',
+    subtitle: 'Every detail matters',
+    germanTitle: 'Hochdruck-Vorreinigung',
+  },
+  {
+    id: 'interactive-details',
+    range: [0.40, 0.55],
+    title: '04: 3D Telemetry Inspection',
+    subtitle: 'The difference is in the details',
+    germanTitle: '3D Hotspot-Inspektion',
+  },
+  {
+    id: 'services-scroll',
+    range: [0.55, 0.64],
+    title: '05: Complete Treatment Portfolio',
+    subtitle: 'One vehicle. Complete care.',
+    germanTitle: 'Komplette Fahrzeugpflege',
+  },
+  {
+    id: 'before-after',
+    range: [0.64, 0.72],
+    title: '06: Interactive Surface Split',
+    subtitle: 'Look closer at the transformation',
+    germanTitle: 'Vorher-Nachher-Vergleich',
+  },
+  {
+    id: 'process-steps',
+    range: [0.72, 0.80],
+    title: '07: Certified 5-Step Protocol',
+    subtitle: 'From arrival to perfection',
+    germanTitle: '5-Stufen-Arbeitsprozess',
+  },
+  {
+    id: 'washpark-showcase',
+    range: [0.80, 0.88],
+    title: '08: 7 SB Wash Bays & 20 Vacuums',
+    subtitle: 'Modern self-service facility',
+    germanTitle: 'SB-Waschpark Pforzheim',
+  },
+  {
+    id: 'fleet-corporate',
+    range: [0.88, 0.94],
+    title: '09: B2B Fleet Maintenance',
+    subtitle: 'Corporate asset preservation',
+    germanTitle: 'Gewerbe & Flottenpflege',
+  },
+  {
+    id: 'about-heritage',
+    range: [0.94, 0.97],
+    title: '10: Passion & Certified Craftsmanship',
+    subtitle: 'Pforzheim detailing masters',
+    germanTitle: 'Über CarClean Pforzheim',
+  },
+  {
+    id: 'showroom-finish',
+    range: [0.97, 1.00],
+    title: '11: Showroom Reveal & Booking',
+    subtitle: 'Schedule your transformation',
+    germanTitle: 'Abschluss & Terminvereinbarung',
+  },
+]
 
 /**
- * 7 Dedicated Automotive Services
+ * 7 Automotive Services
  */
 export interface ServiceItem {
   id: string
   title: string
   germanTitle: string
-  badge: string
   description: string
-  cameraAngle: [number, number, number]
-  target: [number, number, number]
   features: string[]
+  badge: string
 }
 
 export const SERVICES_LIST: ServiceItem[] = [
   {
     id: 'vehicle-cleaning',
-    title: 'Vehicle Cleaning & Washpark',
-    germanTitle: 'Fahrzeugwäsche & Pflege',
+    title: 'Complete Vehicle Care',
+    germanTitle: 'Komplette Fahrzeugreinigung',
+    description: 'Meticulous exterior hand wash, wheel rim de-ironization, and paint decontamination using pure osmosis water.',
+    features: ['Hand wash with pH-neutral active foam', 'Deep wheel barrel & caliper cleaning', 'Osmosis spot-free high-gloss drying'],
     badge: 'Stage 01',
-    description: 'Gentle textile foam washing, underbody rinse, and streak-free osmosis demineralized water for flawless spot-free drying.',
-    cameraAngle: [3.2, 1.8, 3.6],
-    target: [0, 0.4, 0],
-    features: ['Active snow foam pre-soak', 'Wheel barrel & caliper de-ironizing', 'Underbody chassis flush', 'Osmosis spot-free rinse'],
   },
   {
-    id: 'premium-detailing',
+    id: 'paint-correction',
     title: 'Multi-Stage Paint Correction',
-    germanTitle: 'Lackkorrektur & Aufbereitung',
+    germanTitle: 'Lackaufbereitung & Politur',
+    description: 'Swirl, hologram, and scratch removal via multi-stage rotary and random orbital machine polishing.',
+    features: ['Up to 95% swirl & scratch removal', 'Orange peel reduction & mirror clarity', 'Paint depth digital gauge audit'],
     badge: 'Stage 02',
-    description: 'Rotary & dual-action micro-polishing to permanently eliminate 95%+ of swirl marks, spiderwebs, hazing, and wash scratches.',
-    cameraAngle: [1.2, 0.9, 2.0],
-    target: [0.3, 0.5, 0.2],
-    features: ['Digital paint depth gauge measurement', '3-step compounding & finishing polish', 'Orange-peel smoothing', 'Hologram-free mirror depth'],
   },
   {
     id: 'ceramic-coating',
-    title: 'Ceramic Coating & Sealant',
+    title: 'Certified 9H Ceramic Coating',
     germanTitle: 'Keramikversiegelung',
+    description: 'Permanent inorganic nano-ceramic SiO2 glass seal with extreme hydrophobicity and chemical resistance.',
+    features: ['115° Contact angle water beading', 'Permanent UV & oxidation protection', 'Certified warranty document'],
     badge: 'Stage 03',
-    description: 'Ultra-hard 9H molecular ceramic bond offering extreme hydrophobic self-cleaning properties and UV chemical protection.',
-    cameraAngle: [-2.6, 1.4, 3.2],
-    target: [0, 0.4, 0],
-    features: ['9H hardness ceramic bond', 'Extreme contact angle water beading', '3–5 year warranty protection', 'Deep candy-gloss finish'],
   },
   {
-    id: 'dry-interior-cleaning',
-    title: 'Dry & Steam Interior Detailing',
-    germanTitle: 'Innenraum-Tiefenreinigung',
+    id: 'interior-detailing',
+    title: 'Interior Hygiene & Leather Care',
+    germanTitle: 'Innenraumreinigung & Lederpflege',
+    description: 'Deep fiber extraction, steam sanitation, matte dashboard protection, and conditioning of fine automotive leather.',
+    features: ['Deep upholstery wet extraction', 'Leather conditioning with UV block', 'Ozone air disinfection'],
     badge: 'Stage 04',
-    description: 'Deep hygienic steam extraction, leather conditioning, ozone odor neutralization, and pore-clean matte finish restoration.',
-    cameraAngle: [0.0, 1.2, 0.8],
-    target: [0, 0.5, -0.2],
-    features: ['High-temp dry steam disinfection', 'Nappa leather feeding & protection', 'Alcantara gentle fiber revival', 'HEPA air vent sanitation'],
   },
   {
     id: 'leasing-return',
     title: 'Leasing Return Preparation',
-    germanTitle: 'Leasingrückläufer-Aufbereitung',
+    germanTitle: 'Leasingrückläufer Aufbereitung',
+    description: 'Eliminates unexpected dealership deductions through targeted smart repair and appraisal checklist standards.',
+    features: ['Targeted scratch & dent repair', 'Odor and stain removal', 'Official inspection protocol'],
     badge: 'Stage 05',
-    description: 'Comprehensive inspection and cosmetic reconditioning to avoid costly dealership return deductions.',
-    cameraAngle: [3.6, 1.2, -2.4],
-    target: [0, 0.4, 0],
-    features: ['Smart repair for minor scratches', 'Rim scuff & kerb rash remediation', 'Interior stain removal', 'Official inspection protocol check'],
   },
   {
-    id: 'tuv-inspection',
-    title: 'TÜV & Technical Pre-Check',
-    germanTitle: 'TÜV-Vorabprüfung & Service',
+    id: 'tuev-prep',
+    title: 'TÜV & General Inspection Prep',
+    germanTitle: 'TÜV & HU-Vorbereitung',
+    description: 'Chassis wash, engine bay decontamination, and optical restoration before official roadworthiness inspection.',
+    features: ['Dry ice / steam engine cleaning', 'Underbody chassis spray', 'Headlight UV restoration'],
     badge: 'Stage 06',
-    description: 'Comprehensive vehicle safety and technical pre-inspection ensuring a hassle-free official roadworthiness certification.',
-    cameraAngle: [-3.4, 1.6, -1.8],
-    target: [0, 0.4, 0],
-    features: ['Chassis & brake inspection check', 'Lighting & beam alignment', 'Fluid levels & undercarriage audit', 'Direct TÜV appointment handling'],
   },
   {
-    id: 'tire-service',
-    title: 'Wheel & Tire Care System',
-    germanTitle: 'Reifenservice & Felgenpflege',
+    id: 'tire-wheel-care',
+    title: 'Wheel Ceramic & Tire Sealing',
+    germanTitle: 'Felgen- & Reifenservice',
+    description: 'High-temperature ceramic seal for brake calipers and rims, preventing brake dust burn-in.',
+    features: ['Brake dust hydrophobic barrier', 'Satin finish tire dressing', 'Caliper heat-resistant coating'],
     badge: 'Stage 07',
-    description: 'Precision wheel mounting, dynamic balancing, ceramic rim coating, and tire conditioning for optimal safety and aesthetics.',
-    cameraAngle: [-1.4, 0.4, 1.4],
-    target: [-0.95, 0.28, 1.25],
-    features: ['Ceramic high-temp rim protection', 'Precision wheel balancing', 'Deep tire rubber nourishment', 'Seasonal wheel storage handling'],
   },
 ]
 
@@ -252,131 +310,134 @@ export const SERVICES_LIST: ServiceItem[] = [
  */
 export interface VehicleHotspot {
   id: string
-  title: string
   area: string
-  position: [number, number, number]
-  cameraTarget: [number, number, number]
-  cameraPos: [number, number, number]
+  title: string
   description: string
+  position: [number, number, number]
+  cameraPos: [number, number, number]
+  cameraTarget: [number, number, number]
   specs: string[]
 }
 
 export const VEHICLE_HOTSPOTS: VehicleHotspot[] = [
   {
     id: 'paintwork',
-    title: 'Paint Correction & Ceramic 9H',
-    area: 'Hood & Front Fascia',
-    position: [0, 0.65, 1.1],
-    cameraTarget: [0, 0.5, 0.8],
-    cameraPos: [0.8, 1.1, 2.2],
-    description: 'Multi-stage machine correction eliminates swirls, water spots, and micro-scratches before sealing under permanent 9H ceramic nano-glass.',
-    specs: ['Swirl removal: 95%+', 'Gloss increase: +45 GU', 'Hydrophobic angle: 115°'],
+    area: 'Hood & Front Panels',
+    title: 'Multi-Stage Paint Correction',
+    description: '3-stage optical compound cutting, jewel polishing, and 9H ceramic glass bonding for mirror reflections.',
+    position: [0, 0.45, 1.4],
+    cameraPos: [1.2, 0.9, 2.2],
+    cameraTarget: [0, 0.4, 1.2],
+    specs: ['95%+ Swirl Elimination', 'Digital Paint Thickness Audit', 'SiO2 Nano Matrix'],
   },
   {
     id: 'interior',
-    title: 'Hygienic Interior Restoration',
     area: 'Cockpit & Leather Seating',
-    position: [0.3, 0.85, -0.1],
-    cameraTarget: [0.1, 0.6, -0.2],
-    cameraPos: [0.0, 1.2, 1.1],
-    description: 'Steam sterilization, deep leather conditioning with matte UV block, carpet fiber extraction, and ozone air purification.',
-    specs: ['Steam Temp: 160°C', 'Zero silicone gloss', '100% allergen elimination'],
+    title: 'Hygienic Interior Sanitation',
+    description: 'Deep carpet fiber wet-extraction, leather pore cleaning, and anti-static UV matte dashboard coating.',
+    position: [0.35, 0.65, 0.1],
+    cameraPos: [0.9, 1.1, 0.8],
+    cameraTarget: [0.1, 0.5, 0.1],
+    specs: ['Ozone Disinfection', 'Aniline Leather Moisturizing', 'Anti-Static Dust Shield'],
   },
   {
     id: 'wheels',
-    title: 'Wheel & Brake Caliper Sealant',
-    area: 'Front Left 21" Alloy',
-    position: [-0.98, 0.32, 1.25],
-    cameraTarget: [-0.95, 0.28, 1.25],
-    cameraPos: [-1.8, 0.5, 1.8],
-    description: 'Acid-free decontamination removes baked-on brake dust followed by a 1200°C heat-resistant ceramic rim coating.',
-    specs: ['Heat resistance: 1200°C', 'Brake dust repelling', 'Effortless touchless cleaning'],
+    area: 'Alloy Wheels & Calipers',
+    title: 'Ceramic Wheel Armor',
+    description: 'High-heat wheel ceramic coating prevents abrasive iron brake dust from baking into the alloy clearcoat.',
+    position: [0.95, 0.15, 1.1],
+    cameraPos: [1.8, 0.4, 1.5],
+    cameraTarget: [0.85, 0.2, 1.1],
+    specs: ['800°C Heat Resistance', 'Easy-Clean Hydrophobic Finish', 'Brake Dust Repellent'],
   },
   {
     id: 'windshield',
-    title: 'Hydrophobic Glass Shield',
-    area: 'Windshield & Panoramic Roof',
-    position: [0, 0.95, 0.4],
-    cameraTarget: [0, 0.8, 0.2],
-    cameraPos: [0, 1.6, 2.2],
-    description: 'Fluoropolymer glass treatment allows rainwater to bead and roll off instantly at 50 km/h without wiper action.',
-    specs: ['Roll-off speed: >50 km/h', 'Night glare reduction', 'Frost adhesion inhibitor'],
+    area: 'Optical Glass & Mirrors',
+    title: 'Rain-Repellent Glass Coating',
+    description: 'Fluoropolymer glass coating creates a water-shedding barrier for crystal-clear night and rain visibility.',
+    position: [0, 0.72, 0.6],
+    cameraPos: [0.8, 1.3, 1.4],
+    cameraTarget: [0, 0.65, 0.5],
+    specs: ['Hydrophobic Roll-Off at 50 km/h', 'Reduced Wiper Blade Wear', 'Anti-Glare Night Vision'],
   },
   {
-    id: 'rear-diffuser',
-    title: 'Carbon & Plastic Restoration',
-    area: 'Rear Diffuser & Exhaust',
-    position: [0, 0.45, -2.1],
-    cameraTarget: [0, 0.4, -1.8],
-    cameraPos: [-1.6, 0.8, -3.2],
-    description: 'Deep UV-stabilized plastic nourishment and stainless steel exhaust tip hand polishing to factory mirror chrome.',
-    specs: ['UV-resistant deep black', 'Non-greasy satin finish', 'Mirror exhaust tips'],
+    id: 'diffuser',
+    area: 'Rear Aero & Exhaust Tips',
+    title: 'Carbon & Chrome Restoration',
+    description: 'Carbon fiber UV sealant and exhaust tip soot removal with mirror chrome metal polish.',
+    position: [0, 0.35, -1.8],
+    cameraPos: [-1.4, 0.7, -2.5],
+    cameraTarget: [0, 0.35, -1.6],
+    specs: ['Carbon Fiber UV Resin Shield', 'Exhaust Soot Dissolution', 'Deep Contrast Aero Trim'],
   },
 ]
 
 /**
- * 5 Process Steps ("From Arrival to Perfection")
+ * 5 Process Stages
  */
-export const PROCESS_STEPS = [
+export interface ProcessStep {
+  step: string
+  title: string
+  germanTitle: string
+  description: string
+  checkIndicator: string
+}
+
+export const PROCESS_STEPS: ProcessStep[] = [
   {
     step: '01',
-    title: 'Vehicle Analysis & Paint Inspection',
-    germanTitle: 'Fahrzeuganalyse & Lackmessung',
-    description: 'Digital ultrasound paint depth measurement across 40+ points to detect previous repaints and clearcoat thickness.',
-    lightTarget: [0, 1.2, 1.2],
-    checkIndicator: '✓ Analysis Protocol Verified',
+    title: 'Diagnosis & Paint Measurement',
+    germanTitle: 'Diagnose & Schichtdickenmessung',
+    description: 'We measure paint thickness across all panels using ultrasonic gauges and inspect under 5000K LED inspection lighting.',
+    checkIndicator: 'Digital Audit Completed',
   },
   {
     step: '02',
-    title: 'Custom Care Consultation',
-    germanTitle: 'Individuelle Beratung',
-    description: 'Personalized treatment strategy aligned with vehicle usage, storage conditions, and customer expectations.',
-    lightTarget: [-0.8, 1.0, 0],
-    checkIndicator: '✓ Scope of Work Defined',
+    title: 'Touchless Pre-Wash & Decontamination',
+    germanTitle: 'Vorreinigung & Flugrostentfernung',
+    description: 'Snow foam loosens dirt, while iron-fallout removers dissolve embedded industrial and brake dust particles.',
+    checkIndicator: 'Decontamination Verified',
   },
   {
     step: '03',
-    title: 'Multi-Stage Deep Decontamination',
-    germanTitle: 'Mehrstufige Tiefenreinigung',
-    description: 'pH-neutral snow foam bath, iron fallout dissolution, tar removal, and synthetic clay bar de-gritting.',
-    lightTarget: [0.8, 0.8, -0.5],
-    checkIndicator: '✓ Decontamination Complete',
+    title: 'Multi-Stage Swirl-Free Polish',
+    germanTitle: 'Lackkorrektur & Hochglanzpolitur',
+    description: 'Rotary and eccentric polishers with micro-abrasive compounds eliminate swirls, scratches, and hazing.',
+    checkIndicator: 'Optical Mirror Refinement',
   },
   {
     step: '04',
-    title: 'Machine Polish & Ceramic Bonding',
-    germanTitle: 'Lackveredelung & Keramikversiegelung',
-    description: 'Precision dual-action polishing under 5000K daylight inspection lamps followed by hand-applied ceramic coating.',
-    lightTarget: [0, 0.9, 0],
-    checkIndicator: '✓ 9H Coating Cured',
+    title: '9H Ceramic Seal & Curing',
+    germanTitle: 'Keramikversiegelung & Infrarot-Härtung',
+    description: 'Application of certified 9H ceramic coating followed by short-wave infrared heat curing for permanent adhesion.',
+    checkIndicator: 'Infrared Cured',
   },
   {
     step: '05',
-    title: 'Final Quality Audit & Handover',
-    germanTitle: 'Qualitätskontrolle & Übergabe',
-    description: '360° light tunnel inspection audit and issuance of the CarClean digital warranty certificate.',
-    lightTarget: [0, 1.4, 0],
-    checkIndicator: '✓ Showroom Certification Issued',
+    title: 'Quality Audit & Handover',
+    germanTitle: 'Endkontrolle & Fahrzeugübergabe',
+    description: 'Final multi-point light inspection with customer walk-around and issuance of the CarClean warranty certificate.',
+    checkIndicator: 'Showroom Handover Ready',
   },
-] as const
+]
 
 /**
- * Washpark Feature Stations
+ * Washpark 4 Feature Stations
  */
 export const WASHPARK_FEATURES = [
   {
-    title: '7 Self-Service Wash Bays',
-    specs: 'Extra-wide covered bays with high-clearance for transporters and sports cars',
+    title: '7 Covered SB Wash Bays',
+    specs: 'Spacious bays with heated high-pressure lances, active snow foam guns, and gentle wheel cleaning programs',
     icon: 'Droplets',
   },
   {
     title: '20 High-Power Vacuum Bays',
-    specs: 'Ergonomic dual-hose suction systems with compressed air blowing guns',
+    specs: 'Continuous high-suction central turbines with ergonomic nozzles for effortless interior cleaning',
     icon: 'Wind',
   },
   {
-    title: '100% Osmosis Demineralized Water',
-    specs: 'Mineral-free pure water for spot-free, streak-free natural drying without chamois',
+    title: '100% Demineralized Osmosis Water',
+    specs: 'Ultra-pure osmosis water leaves zero water spots or mineral rings, drying completely streak-free in the sun',
     icon: 'Sparkles',
   },
   {
@@ -387,7 +448,7 @@ export const WASHPARK_FEATURES = [
 ]
 
 /**
- * Master Animation Timeline Configuration
+ * Master Animation Timeline Configuration (Lightweight & 60+ FPS Optimized)
  */
 export const animationConfig = {
   camera: {
@@ -412,9 +473,9 @@ export const animationConfig = {
     floatSpeed: 1.4,
   },
   particles: {
-    desktop: { maxCount: 1400, foamCount: 700, mistCount: 500 },
-    tablet: { maxCount: 600, foamCount: 300, mistCount: 200 },
-    mobile: { maxCount: 200, foamCount: 100, mistCount: 50 },
+    desktop: { maxCount: 750, foamCount: 380, mistCount: 250 },
+    tablet: { maxCount: 320, foamCount: 160, mistCount: 100 },
+    mobile: { maxCount: 120, foamCount: 60, mistCount: 30 },
   },
   lighting: {
     ambientIntensity: 0.55,
@@ -426,17 +487,17 @@ export const animationConfig = {
     underglowIntensity: 1.4,
   },
   postprocessing: {
-    bloom: { intensity: 0.4, luminanceThreshold: 0.85, luminanceSmoothing: 0.2 },
-    vignette: { offset: 0.25, darkness: 0.6 },
+    bloom: { intensity: 0.35, luminanceThreshold: 0.88, luminanceSmoothing: 0.2 },
+    vignette: { offset: 0.25, darkness: 0.55 },
   },
   lenis: {
-    duration: 1.2,
+    duration: 1.05,
     easing: (t: number) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
     orientation: 'vertical' as const,
     gestureOrientation: 'vertical' as const,
     smoothWheel: true,
     wheelMultiplier: 1.0,
-    touchMultiplier: 1.4,
+    touchMultiplier: 1.2,
   },
   reducedMotion: {
     cameraPos: [3.6, 1.4, 4.0] as [number, number, number],

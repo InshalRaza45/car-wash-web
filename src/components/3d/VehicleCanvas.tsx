@@ -37,9 +37,9 @@ export const VehicleCanvas: React.FC<VehicleCanvasProps> = ({
     <div className="webgl-canvas-container" aria-hidden="true">
       <Canvas
         dpr={dpr}
-        shadows
+        shadows={false}
         gl={{
-          antialias: true,
+          antialias: !isMobile,
           powerPreference: 'high-performance',
           toneMapping: THREE.ACESFilmicToneMapping,
           toneMappingExposure: 1.2,
@@ -49,14 +49,14 @@ export const VehicleCanvas: React.FC<VehicleCanvasProps> = ({
           position: [4.2, 1.4, 4.6],
           fov: isMobile ? 50 : 36,
           near: 0.1,
-          far: 50,
+          far: 40,
         }}
       >
         <Suspense fallback={null}>
-          {/* Photorealistic Studio HDR Environment for Metallic Reflections */}
+          {/* Studio HDR Environment for Metallic Reflections */}
           <Environment preset="city" environmentIntensity={0.8} />
 
-          {/* Cinematic Camera Choreography */}
+          {/* Cinematic Camera Choreography with Parallax */}
           <CinematicCamera scrollProgress={scrollProgress} activeHotspot={activeHotspot} />
 
           {/* Studio Lighting & Inspection Laser Scanner */}
@@ -72,14 +72,14 @@ export const VehicleCanvas: React.FC<VehicleCanvasProps> = ({
             selectedHotspotTarget={activeHotspot ? activeHotspot.position : null}
           />
 
-          {/* Realistic Soft Contact Shadows under Chassis and Tires */}
+          {/* Lightweight Soft Contact Shadows (Optimized 256 Resolution) */}
           <ContactShadows
             position={[0, -0.01, 0]}
-            opacity={0.9}
-            scale={12}
+            opacity={0.88}
+            scale={11}
             blur={1.8}
-            far={3.0}
-            resolution={512}
+            far={2.8}
+            resolution={256}
             color="#000000"
           />
 
@@ -90,14 +90,14 @@ export const VehicleCanvas: React.FC<VehicleCanvasProps> = ({
             visible={showHotspots}
           />
 
-          {/* Snow Foam & Water Droplet Mist Particle Simulation */}
+          {/* High-Performance Snow Foam & Water Spray Simulation */}
           <DetailingParticles
             foamFactor={factors.foamFactor}
             waterFactor={factors.waterFactor}
             ceramicIridescence={factors.ceramicIridescence}
           />
 
-          {/* Bloom & Vignette Post-Processing */}
+          {/* Post-Processing Effects (Auto disabled on mobile) */}
           <CinematicEffects />
         </Suspense>
       </Canvas>
